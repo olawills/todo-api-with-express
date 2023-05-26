@@ -19,7 +19,7 @@ let todos = [];
 app.get("/todos/tasks", (req, res) => {
   const todo = {
     id: todos.length,
-    title: req.body.title || null,
+    title: req.body.title,
     completed: req.body.completed || false,
   };
   res.json(todo);
@@ -30,8 +30,8 @@ app.get("/todos/tasks", (req, res) => {
 app.post("/todos/tasks", (req, res) => {
   const todo = {
     id: todos.length,
-    title: req.body.title || null,
-    completed: req.body.completed || false,
+    title: req.body.title,
+    completed: req.body.completed,
   };
   if (!todo) {
     return res.status(404).json({ message: "Todo not found" });
